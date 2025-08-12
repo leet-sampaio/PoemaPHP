@@ -1,34 +1,3 @@
-## 🖥️ Detalhes do Backend
-
-O backend do PoemaPHP foi desenvolvido em PHP puro, seguindo rigorosamente o padrão de arquitetura MVC (Model-View-Controller), o que garante separação de responsabilidades, organização e facilidade de manutenção. Veja como cada parte funciona:
-
-- **Model:**
-	- Responsável por toda a comunicação com o banco de dados MySQL.
-	- Os arquivos em `model/` (como `conexao.php` e `editarPoema.php`) fazem a conexão, executam queries SQL e retornam dados para o restante do sistema.
-	- Utiliza PDO ou MySQLi para evitar SQL Injection e garantir segurança nas operações.
-
-- **Controller:**
-	- Os arquivos em `controller/` recebem as requisições dos formulários (cadastro, login, CRUD de poemas, etc.).
-	- Realizam validações, sanitização de dados e regras de negócio.
-	- Controlam o fluxo de navegação, redirecionando o usuário conforme o resultado das operações.
-	- Manipulam sessões PHP para autenticação e controle de acesso.
-	- Exemplo: `processa_login.php` valida o login, inicia a sessão e direciona para a página principal.
-
-- **View:**
-	- Os arquivos em `view/` são responsáveis pela interface com o usuário.
-	- Recebem dados do Controller e exibem de forma organizada, utilizando HTML, CSS e JavaScript.
-
-- **Segurança:**
-	- Todas as entradas de usuário são validadas e sanitizadas.
-	- As senhas são armazenadas de forma segura (utilize funções como `password_hash` e `password_verify`).
-	- O sistema utiliza sessões para garantir que apenas usuários autenticados possam acessar as áreas protegidas.
-
-- **Integração com MySQL:**
-	- O banco de dados é modelado no MySQL Workbench e acessado via PHP.
-	- O script `sql.sql` permite criar toda a estrutura do banco facilmente.
-
-Essa abordagem torna o sistema robusto, seguro e fácil de evoluir, permitindo a adição de novas funcionalidades sem comprometer a organização do código.
-
 # PoemaPHP
 
 Sistema completo para cadastro, login e gerenciamento de poemas, desenvolvido em PHP seguindo o padrão MVC, com banco de dados MySQL e interface moderna.
@@ -96,6 +65,36 @@ PoemaPHP/
 ├── README.md           # Este arquivo
 └── ...
 ```
+## 🖥️ Detalhes do Backend
+
+O backend do PoemaPHP foi desenvolvido em PHP puro, seguindo rigorosamente o padrão de arquitetura MVC (Model-View-Controller), o que garante separação de responsabilidades, organização e facilidade de manutenção. Veja como cada parte funciona:
+
+- **Model:**
+	- Responsável por toda a comunicação com o banco de dados MySQL.
+	- Os arquivos em `model/` (como `conexao.php` e `editarPoema.php`) fazem a conexão, executam queries SQL e retornam dados para o restante do sistema.
+	- Utiliza PDO ou MySQLi para evitar SQL Injection e garantir segurança nas operações.
+
+- **Controller:**
+	- Os arquivos em `controller/` recebem as requisições dos formulários (cadastro, login, CRUD de poemas, etc.).
+	- Realizam validações, sanitização de dados e regras de negócio.
+	- Controlam o fluxo de navegação, redirecionando o usuário conforme o resultado das operações.
+	- Manipulam sessões PHP para autenticação e controle de acesso.
+	- Exemplo: `processa_login.php` valida o login, inicia a sessão e direciona para a página principal.
+
+- **View:**
+	- Os arquivos em `view/` são responsáveis pela interface com o usuário.
+	- Recebem dados do Controller e exibem de forma organizada, utilizando HTML, CSS e JavaScript.
+
+- **Segurança:**
+	- Todas as entradas de usuário são validadas e sanitizadas.
+	- As senhas são armazenadas de forma segura (utilize funções como `password_hash` e `password_verify`).
+	- O sistema utiliza sessões para garantir que apenas usuários autenticados possam acessar as áreas protegidas.
+
+- **Integração com MySQL:**
+	- O banco de dados é modelado no MySQL Workbench e acessado via PHP.
+	- O script `sql.sql` permite criar toda a estrutura do banco facilmente.
+
+Essa abordagem torna o sistema robusto, seguro e fácil de evoluir, permitindo a adição de novas funcionalidades sem comprometer a organização do código.
 
 ## ⚙️ Instalação e Execução
 ### Pré-requisitos
