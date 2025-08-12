@@ -1,3 +1,155 @@
+/* Cadastro: campos empilhados, centralizados e espaçados */
+form[name="cadastroUsuario"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+form[name="cadastroUsuario"] label,
+form[name="cadastroUsuario"] LABEL {
+    align-self: flex-start;
+    margin-left: 17.5%; /* para alinhar com o input centralizado (65%) */
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #2E2E2E;
+    letter-spacing: 0.5px;
+}
+
+form[name="cadastroUsuario"] input[type="text"],
+form[name="cadastroUsuario"] input[type="password"],
+form[name="cadastroUsuario"] input[type="email"],
+form[name="cadastroUsuario"] input[type="tel"],
+form[name="cadastroUsuario"] select {
+    width: 65%;
+    margin: 0 auto;
+    display: block;
+    padding: 12px 12px;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 0px;
+    background: #f8fafc;
+    font-size: 16px;
+    color: #2C3E50;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form[name="cadastroUsuario"] input[type="text"]:focus,
+form[name="cadastroUsuario"] input[type="password"]:focus,
+form[name="cadastroUsuario"] input[type="email"]:focus,
+form[name="cadastroUsuario"] input[type="tel"]:focus,
+form[name="cadastroUsuario"] select:focus {
+    border-color: #5B8FD6;
+    box-shadow: 0 0 0 2px #A3C4F3;
+}
+
+form[name="cadastroUsuario"] input[type="submit"],
+.cadastro-card input[type="submit"] {
+    width: 65%;
+    margin: 0 auto;
+    background: #A3C4F3;
+    color: #fff !important;
+    border: none;
+    border-radius: 0;
+    height: 45px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+form[name="cadastroUsuario"] input[type="submit"]:hover,
+.cadastro-card input[type="submit"]:hover {
+    background: #5B8FD6;
+    color: #fff !important;
+    box-shadow: 0 6px 18px rgba(44,62,80,0.16);
+}
+/* Card específico para login */
+.login-card,
+.cadastro-card {
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    background: #ede6da;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px 0 #b5d0ee;
+    padding: 40px ;
+}
+/* Card de Poema para poemas.php */
+.poema-card {
+    background: #f8fafc;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 8px;
+    margin: 32px auto;
+    padding: 32px 24px;
+    max-width: 600px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+    text-align: left;
+}
+
+.poema-card-header {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.poema-card-label {
+    font-weight: 600;
+    color: #2E2E2E;
+}
+
+.poema-card-body {
+    white-space: pre-line;
+    margin-top: 8px;
+    color: #2C3E50;
+    font-size: 1.1em;
+    background: #fff;
+    border-radius: 6px;
+    padding: 18px 16px;
+    border: 1px solid #e3eaf7;
+    min-height: 80px;
+}
+/* Card de Poema para editarPoemas.php */
+.poema-card {
+    background: #f8fafc;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 8px;
+    margin: 32px auto;
+    padding: 32px 24px;
+    max-width: 600px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.07);
+    text-align: left;
+}
+
+.poema-card-header {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.poema-card-label {
+    font-weight: 600;
+    color: #2E2E2E;
+}
+
+.poema-card-body {
+    white-space: pre-line;
+    margin-top: 8px;
+    color: #2C3E50;
+    font-size: 1.1em;
+    background: #fff;
+    border-radius: 6px;
+    padding: 18px 16px;
+    border: 1px solid #e3eaf7;
+    min-height: 80px;
+}
+/* Ícone do menu (mao.jpg) */
+.logo-menu-img {
+    height: 60px;
+    width: 60px;
+    border-radius: 5px;
+}
 * {
     box-sizing: border-box; 
 }
@@ -13,7 +165,8 @@ body{
 #menu{
     height: 100px;
     width: 100%;
-    background-color: #2C3E50;
+    background-color: #EDE6DB;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.07);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,28 +183,28 @@ body{
 }
 
 .blocos_menus a {
-    color: #6CAED9;
+    color: #2E2E2E;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
 }
 .blocos_menus a:hover {
-    color: #578eb3;
+    color: #b3d0f7;
 }
 
 /*------------------------------------------------------------*/
 #corpo{
-    width: 700px;
-    height: auto;
-    margin: 0 auto;  
-    padding: 20px; 
-    text-align: justify; 
-}
+    width: 80%;
+    min-width: 340px;
+    max-width: 700px;
+    margin: 48px auto 48px auto;
+    padding: 36px 36px 36px 36px;
+    background: #EDE6DB;
+    border: 2px solid #A3C4F3;
+    border-radius: 8px;
+    box-shadow: 0 6px 32px rgba(44,62,80,0.10);
+    text-align: center;
 
-.ficar_no_meio{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #frase{
@@ -68,36 +221,40 @@ body{
 
 #rodape{
     width: 100%;
-    height: 130px;
-    background-color: #2C3E50;
-
+    background-color: #EDE6DB;
+    box-shadow: 0 -2px 8px rgba(44,62,80,0.07);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 15px;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 0;
+    min-height: 100px;
 }
 
 
 #rodape .blocos_rodape{
-    flex: 1;
-    height: 90%;
+    flex: 1 1 160px;
+    min-width: 140px;
+    max-width: 340px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 7px solid;
-    border-color: black;
-    padding: 0 10px;
-    gap: 15px;
-    
+    border: 3px solid #2E2E2E;
+    padding: 6px 8px;
+    gap: 8px;
+    background: #EDE6DB;
+    box-sizing: border-box;
+    word-break: break-word;
 }
 
 #rodape .bloquinhos{
-    width: 33%;
-    height: 100px;
+    flex: 1 1 80px;
+    min-width: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    word-break: break-word;
 }
 
 #rodape .blocos_rodape a{
@@ -110,17 +267,141 @@ body{
     text-align: center;
 }
 
-.corpos{
-    width: 600px;
-    height: auto;
-    margin: 0 auto;  
-    padding: 20px; 
-    border: 1px solid;
-    border-color: black;
-    text-align: justify;  
+
+.corpos {
+    width: 80%;
+    min-width: 340px;
+    max-width: 1100px;
+    margin: 48px auto 48px auto;
+    padding: 36px 36px 28px 36px;
+    background: #EDE6DB;
+    border: 2px solid #A3C4F3;
+    border-radius: 8px;
+    box-shadow: 0 6px 32px rgba(44,62,80,0.10);
+    text-align: center;
+    /* aspect-ratio removido para crescer conforme conteúdo */
+    }
+
+form[name="login"] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* manda o rodape la profinal tudo isso abaixo */
+form[name="login"] label, form[name="login"] LABEL {
+    font-weight: 600;
+    color: #2E2E2E;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    width: 65%;
+    margin: 0 auto 6px auto;
+}
+
+
+form[name="login"] input[type="text"],
+form[name="login"] input[type="password"],
+form[name="login"] input[type="submit"] {
+    width: 65%;
+    margin: 0 auto;
+    display: block;
+    padding: 12px 12px;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 0px;
+    background: #f8fafc;
+    font-size: 16px;
+    color: #2C3E50;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+form[name="login"] textarea {
+    padding: 12px 12px;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 0px;
+    background: #f8fafc;
+    font-size: 16px;
+    color: #2C3E50;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+}
+form[name="login"] textarea {
+    width: 65%;
+    min-height: 610px;
+    box-sizing: border-box;
+    margin: 0 auto 18px auto;
+    padding: 12px 12px;
+    border: 1.5px solid #A3C4F3;
+    border-radius: 0px;
+    background: #f8fafc;
+    font-size: 16px;
+    color: #2C3E50;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+}
+form[name="login"] textarea:focus {
+    border-color: #5B8FD6;
+    box-shadow: 0 0 0 2px #A3C4F3;
+}
+form[name="login"] input[type="text"]:focus,
+form[name="login"] input[type="password"]:focus,
+form[name="login"] textarea:focus {
+    border-color: #5B8FD6;
+    box-shadow: 0 0 0 2px #A3C4F3;
+}
+
+form[name="login"] input[type="submit"] {
+    background: #A3C4F3;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 13px 0;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 5px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+form[name="login"] input[type="submit"]:hover {
+    background: #5B8FD6;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(44,62,80,0.16);
+}
+
+form[name="login"] a {
+    color: #5B8FD6;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    transition: color 0.2s;
+}
+form[name="login"] a:hover {
+    color: #2C3E50;
+    text-decoration: none;
+}
+
+.ficar_no_meio {
+    justify-content: center;
+    color: #2E2E2E;
+    font-family: 'Segoe UI', 'Arial', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+form[name="login"] p:last-of-type {
+    margin-top: -15px;
+}
+
+/* Manda o rodapé abaixo de tudo isso */
 .tudo {
     display: flex;
     flex-direction: column;
@@ -136,7 +417,7 @@ main {
 
 footer {
     background-color: #333;
-    color: #fff;
+    color: #2E2E2E;
     text-align: center;
     padding: 10px;
 }
@@ -152,6 +433,49 @@ textarea{
   resize: vertical;
 }
 
+/* Hover para link de adicionar poema vazio */
+.corpos a.adicionar-poema-link {
+    color: #F28C8C;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.corpos a.adicionar-poema-link:hover {
+    color: #b3d0f7;
+    text-decoration: underline;
+}
 
-
-
+/* Botões de ação em editarPoemas.php */
+.botao-acao {
+    background: #A3C4F3;
+    color: #fff !important;
+    border: none;
+    border-radius: 0;
+    padding: 13px 32px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.botao-acao:hover {
+    background: #5B8FD6;
+    color: #fff !important;
+    box-shadow: 0 6px 18px rgba(44,62,80,0.16);
+    text-decoration: none;
+}
+.botao-excluir {
+    background: #F28C8C;
+}
+.botao-excluir:hover {
+    background: #d9534f;
+}
+.botao-editar {
+    background: #A3C4F3;
+}
+.botao-editar:hover {
+    background: #5B8FD6;
+}

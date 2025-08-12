@@ -28,16 +28,16 @@ $ultimoPoemaEditadoId = $_COOKIE ['ultimo_poema_editado_id'] ?? '';
         <header>
             <nav id="menu">
                 <div class="blocos_menus">
-                    <a href="inicio2.php" ><img src="img/lendo-um-livro.png" alt="icon" style="height: 60px; width: 60px; border-radius: 5px;"></a>
+                    <a href="inicio2.php" ><img src="img/mao.jpg" alt="icon" class="logo-menu-img"></a>
                 </div>
                 <div class="blocos_menus">
                     <a href="poemas.php" >Poemas</a>
                 </div> 
                 <div class="blocos_menus">
-                    <a href="adicionarPoemas.php" >Adicionar Poemas</a>
+                    <a href="adicionarPoemas.php" >Adicionar</a>
                 </div>
                 <div class="blocos_menus">
-                    <a href="editarPoemas.php">Editar e Atualizar Poemas</a>
+                    <a href="editarPoemas.php">Editar / Atualizar</a>
                 </div>
                 <div class="blocos_menus">
                     <a href="perfil.php" >Perfil</a>
@@ -46,26 +46,31 @@ $ultimoPoemaEditadoId = $_COOKIE ['ultimo_poema_editado_id'] ?? '';
         </header>
 
         <main class="corpos">
-            <h1 class="ficar_no_meio">Editar e Atualizar Poemas</h1>
+            <h1 class="ficar_no_meio">EDITAR & ATUALIZAR POEMAS</h1>
 
             <?php 
-            if ($msg_sucesso): ?><p id="mensagemSucesso" style="color:green; text-align:center;"><?php echo htmlspecialchars($msg_sucesso); ?></p><?php endif; ?>
-            <?php if ($msg_erro): ?><p id="mensagemErro" style="color:red; text-align: center;"><?php echo htmlspecialchars($msg_erro); ?></p><?php endif; ?>
+            if ($msg_sucesso): ?><p id="mensagemSucesso" style="color:green; text-align:center;"><?php echo htmlspecialchars($msg_sucesso); ?></p>
+            <script>
+                setTimeout(function() {
+                    var el = document.getElementById('mensagemSucesso');
+                    if (el) el.style.display = 'none';
+                }, 10000);
+            </script>
+            <?php endif; ?>
+            <?php if ($msg_erro): ?><p id="mensagemErro" style="color:#F28C8C; text-align: center;"><?php echo htmlspecialchars($msg_erro); ?></p><?php endif; ?>
             <?php if ($msg_info): ?><p style='color: gray; text-align: center;'><?php echo htmlspecialchars($msg_info); ?></p><?php endif; ?>
 
             <?php if ($poemaParaEditar): // Mostra o formulário de edição se um poema foi carregado pelo Controller ?>
-                <form action="" name="AtualizarUsuario" method="POST">
-                    <label>ID:</label>
-                    <input type="text" name="id" value="<?php echo htmlspecialchars($poemaParaEditar['id']); ?>" readonly><br><br>
-
-                    <label>Autor:</label>
-                    <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome" value="<?php echo htmlspecialchars($poemaParaEditar['nomeAutor']); ?>" required><br><br>
-
-                    <label>Poema:</label>
-                    <textarea name="novoPoema" id="novoPoema" placeholder="Poema" rows="10" cols="50" required><?php echo htmlspecialchars($poemaParaEditar['novoPoema']); ?></textarea><br><br>
-
-                    <input type="submit" value="Atualizar" name="AtualizarUsu">
+                <div class="corpos">
+                <form name="login" action="" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($poemaParaEditar['id']); ?>">
+                    <label for="nomeAutor">Autor:</label>
+                    <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome" onkeyup="somenteLetras(this);" value="<?php echo htmlspecialchars($poemaParaEditar['nomeAutor']); ?>" required>
+                    <label for="novoPoema">Poema:</label>
+                    <textarea name="novoPoema" id="novoPoema" placeholder="Era uma vez..." rows="5" required><?php echo htmlspecialchars($poemaParaEditar['novoPoema']); ?></textarea>
+                    <input type="submit" value="ATUALIZAR" name="AtualizarUsu">
                 </form>
+                </div>
             <?php endif; ?>
 
             <?php 
@@ -73,50 +78,30 @@ $ultimoPoemaEditadoId = $_COOKIE ['ultimo_poema_editado_id'] ?? '';
             if (!empty($listaDePoemas)): ?>
                 <div class="lista-poemas">
                     <?php foreach ($listaDePoemas as $rowTable): ?>
-                        <div>
-                            <p><strong>ID:</strong> <?php echo htmlspecialchars($rowTable['id']);?></p>
-                            <p><strong>Autor:</strong> <?php echo htmlspecialchars($rowTable['nomeAutor']);?></p>
-                            <p><strong>Poema:</strong> <br><?php echo nl2br(htmlspecialchars($rowTable['novoPoema']));?></p>
-                            <div>
-                                <a href="editarPoemas.php?action=excluir&id=<?php echo htmlspecialchars($rowTable['id']); ?>" onclick="return confirm('Tem certeza que deseja excluir este poema?');">Excluir</a>
-                                <a href="editarPoemas.php?action=editar&id=<?php echo htmlspecialchars($rowTable['id']); ?>">Editar</a>
+                            <div class="poema-card">
+                                <div class="poema-card-header">
+                                    <span class="poema-card-label">Autor:</span> <?php echo htmlspecialchars($rowTable['nomeAutor']);?>
+                                </div>
+                                <div class="poema-card-header">
+                                    <span class="poema-card-label">Poema:</span><br>
+                                    <div class="poema-card-body"><?php echo nl2br(htmlspecialchars($rowTable['novoPoema']));?></div>
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 18px; margin-top: 18px;">
+                                    <a href="editarPoemas.php?action=excluir&id=<?php echo htmlspecialchars($rowTable['id']); ?>" onclick="return confirm('Tem certeza que deseja excluir este poema?');" class="botao-acao botao-excluir">Excluir</a>
+                                    <a href="editarPoemas.php?action=editar&id=<?php echo htmlspecialchars($rowTable['id']); ?>" class="botao-acao botao-editar">Editar</a>
+                                </div>
                             </div>
-                        </div>
-                        <hr>
                     <?php endforeach; ?>
                 </div>
             <?php 
             // Se não há poemas e nenhuma outra mensagem, exibe um aviso padrão
             elseif (empty($msg_info) && empty($msg_erro)): ?>
-                <p style='color: red; text-align: center;'>Não existem registros a serem listados.</p><br>
+                <p style='color: #F28C8C; text-align: center;'>Não existem registros a serem listados.</p><br>
             <?php endif; ?>
 
         </main>
         
-        <p id="frase">muito obrigado por visitar o site</p>
         <footer id="rodape">
-            <div class="blocos_rodape">
-                <div class="bloquinhos">
-                    <p><strong>Atendimento:</strong> (11) 99999-9999 | contato@petshop.com</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Endereço:</strong> Rua dos Bichinhos, 123 - São Paulo, SP</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Horário:</strong> Seg a Sáb - 9h às 18h</p>
-                </div>
-            </div>
-            <div class="blocos_rodape">
-                <p>Visite nossos canal no instagram e no facebook</p>
-                <a href="https://instagram.com/petshop" target="_blank">
-                    <img src="img/instagram.png" alt="logo instagram" style="height: 50px; width: 50px;">
-                </a>
-                <a href="https://facebook.com/petshop" target="_blank">
-                    <img src="img/facebook.png" alt="logo facebook" style="height: 50px; width: 50px;">
-                </a>
-            </div>
-        </footer>
-        <script src="js/javaScript.js"></script>
-    </div>
-</body>
-</html>
+            <p style="width: 100%; text-align: center; margin: 18px 0 12px 0; color: #2E2E2E; font-size: 1.1em;">
+                © 2025 Versos e Vozes – Todos os direitos reservados.
+            </p>

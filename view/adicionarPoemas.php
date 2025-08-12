@@ -13,7 +13,7 @@ $ultimoAutor = $_COOKIE['ultimo_autor_adicionado'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADD POEMAS</title>
+    <title>ADICIONAR </title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/livro.png" type="image/x-icon">
     <script src="controller/mascara.js" defer></script>
@@ -23,7 +23,7 @@ $ultimoAutor = $_COOKIE['ultimo_autor_adicionado'] ?? '';
         <header>
             <nav id="menu">
                 <div class="blocos_menus">
-                    <a href="inicio2.php" ><img src="img/lendo-um-livro.png" alt="icon" style="height: 60px; width: 60px; border-radius: 5px;"></a>
+                    <a href="inicio2.php" ><img src="img/mao.jpg" alt="icon" class="logo-menu-img"></a>
                 </div>
 
                 <div class="blocos_menus">
@@ -31,11 +31,11 @@ $ultimoAutor = $_COOKIE['ultimo_autor_adicionado'] ?? '';
                 </div> 
             
                 <div class="blocos_menus">
-                    <a href="adicionarPoemas.php" >Adicionar Poemas</a>
+                    <a href="adicionarPoemas.php" >Adicionar</a>
                 </div>
                 
                 <div class="blocos_menus">
-                    <a href="editarPoemas.php">Editar e Atualizar Poemas</a>
+                    <a href="editarPoemas.php">Editar / Atualizar</a>
                 </div>
 
                 <div class="blocos_menus">
@@ -50,65 +50,34 @@ $ultimoAutor = $_COOKIE['ultimo_autor_adicionado'] ?? '';
         <body>
             <main class="corpos">
                 
-                <h1 class="ficar_no_meio">Adicionar Poemas</h1>
+                <h1 class="ficar_no_meio">ADICIONAR POEMAS</h1>
 
                 <?php
-                if(isset($_SESSION['msg_sucesso'])){
-                    echo"<p id='mensagemSucesso' style ='color:green; text-align: center;'>" . $_SESSION['msg_sucesso'] . "</php>";
-                    unset($_SESSION['msg_sucesso']);
+                if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1) {
+                    echo "<p id='mensagemSucesso' style ='color:green; text-align: center;'>Poema cadastrado com sucesso!</p>";
                 }
                 if(isset($_SESSION['msg_erro'])){
                     echo"<p id='mensagemErro' style= 'color: red; text-align: center;'>" . $_SESSION['msg_erro'] . "</p>";
                     unset($_SESSION['msg_erro']);
                 }
-
                 ?>
 
-                <form action="" method="post">
-                        <label>Autor:</label><br><br>
-                        <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome" onkeyup="somenteLetras(this);" value= "<?php if(isset($_POST['nomeAutor'])){echo $_POST['nomeAutor'];}?>"></input>
-                    <br><br>
-                        <label>Poema:</label><br><br>
-                        <textarea type="text" name="novoPoema" id="novoPoema" placeholder="Era uma vez..." value="<?php if(isset($_POST['novoPoema'])){echo $_POST['novoPoema'];}?>"></textarea>
-                    <br><br>
-                        <input type="submit" value="SALVAR" name="cadastrarPoema">
+                <form name="login" action="" method="post" style="display: flex; flex-direction: column; gap: 12px;">
+                    <label for="nomeAutor">Autor:</label>
+                    <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome" onkeyup="somenteLetras(this);">
+                    <label for="novoPoema">Poema:</label>
+                    <textarea name="novoPoema" id="novoPoema" placeholder="Era uma vez..." rows="5"></textarea>
+                    <input type="submit" value="SALVAR" name="cadastrarPoema">
                 </form>
             </main>
         </body>
 
          <!------------------------------------------------------------------------------------------------------------------------------------------------>
-         <p id="frase">
-            muito obrigado por visitar o site
-        </p>
+         
         <footer id="rodape">
-            
-            
-            <div class="blocos_rodape">
-                <div class="bloquinhos">
-                    <p><strong>Atendimento:</strong> (11) 99999-9999 | contato@petshop.com</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Endereço:</strong> Rua dos Bichinhos, 123 - São Paulo, SP</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Horário:</strong> Seg a Sáb - 9h às 18h</p>
-                </div>
-                
-                
-                
-            </div>
-
-            <div class="blocos_rodape">
-                <p>
-                    Visite nossos canal no instagram e no facebook
-                </p>
-                <a href="https://instagram.com/petshop" target="_blank">
-                    <img src="img/instagram.png" alt="logo instagram" style="height: 50px; width: 50px;">
-                </a>
-                <a href="https://facebook.com/petshop" target="_blank">
-                    <img src="img/facebook.png" alt="logo facebook" style="height: 50px; width: 50px;">
-                </a>
-            </div>
+            <p style="width: 100%; text-align: center; margin: 18px 0 12px 0; color: #2E2E2E; font-size: 1.1em;">
+                © 2025 Versos e Vozes – Todos os direitos reservados.
+            </p>
         </footer>
 
 

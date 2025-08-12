@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>PERFIL</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/livro.png" type="image/x-icon">
     <script src="controller/mascara.js" defer></script>
@@ -13,7 +13,7 @@
         <header>
             <nav id="menu">
                 <div class="blocos_menus">
-                    <a href="inicio2.php" ><img src="img/lendo-um-livro.png" alt="icon" style="height: 60px; width: 60px; border-radius: 5px;"></a>
+                    <a href="inicio2.php" ><img src="img/mao.jpg" alt="icon" class="logo-menu-img"></a>
                 </div>
 
                 <div class="blocos_menus">
@@ -21,11 +21,11 @@
                 </div> 
             
                 <div class="blocos_menus">
-                    <a href="adicionarPoemas.php" >Adicionar Poemas</a>
+                    <a href="adicionarPoemas.php" >Adicionar</a>
                 </div>
                 
                 <div class="blocos_menus">
-                    <a href="editarPoemas.php">Editar e Atualizar Poemas</a>
+                    <a href="editarPoemas.php">Editar / Atualizar</a>
                 </div>
 
                 <div class="blocos_menus">
@@ -37,46 +37,21 @@
         </header>
         <!------------------------------------------------------------------------------------------------------------------------------------------------>
         <main class="corpos">
-                <h1 class="ficar_no_meio">Perfil</h1>
+                <h1 class="ficar_no_meio">PERFIL</h1>
 
-                <p><a href="inicio.php">SAIR</a></p>
+                <form action="../view/logout.php" method="post" style="margin-top: 24px;">
+                    <input type="submit" value="LOGOUT" class="botao-acao botao-excluir">
+                </form>
                 
             </main>
         
 
          <!------------------------------------------------------------------------------------------------------------------------------------------------>
-         <p id="frase">
-            muito obrigado por visitar o site
-        </p>
+         
         <footer id="rodape">
-            
-            
-            <div class="blocos_rodape">
-                <div class="bloquinhos">
-                    <p><strong>Atendimento:</strong> (11) 99999-9999 | contato@petshop.com</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Endereço:</strong> Rua dos Bichinhos, 123 - São Paulo, SP</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Horário:</strong> Seg a Sáb - 9h às 18h</p>
-                </div>
-                
-                
-                
-            </div>
-
-            <div class="blocos_rodape">
-                <p>
-                    Visite nossos canal no instagram e no facebook
-                </p>
-                <a href="https://instagram.com/petshop" target="_blank">
-                    <img src="img/instagram.png" alt="logo instagram" style="height: 50px; width: 50px;">
-                </a>
-                <a href="https://facebook.com/petshop" target="_blank">
-                    <img src="img/facebook.png" alt="logo facebook" style="height: 50px; width: 50px;">
-                </a>
-            </div>
+            <p style="width: 100%; text-align: center; margin: 18px 0 12px 0; color: #2E2E2E; font-size: 1.1em;">
+                © 2025 Versos e Vozes – Todos os direitos reservados.
+            </p>
         </footer>
 
 

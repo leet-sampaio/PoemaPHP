@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['msg_sucesso'] = "Poema cadastrado com sucesso!";
                 unset($_SESSION['old_nomeAutor']);
                 unset($_SESSION['old_novoPoema']);
+                header('Location: ../view/adicionarPoemas.php?sucesso=1');
+                exit;
             }          
             } else{
                 $_SESSION['msg_erro'] = implode("<br>", $validar);

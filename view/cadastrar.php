@@ -29,7 +29,7 @@ if (isset($_SESSION['dados_formulario'])) {
         <header>
             <nav id="menu">
                 <div class="blocos_menus">
-                    <a href="inicio.php" ><img src="img/lendo-um-livro.png" alt="icon" style="height: 60px; width: 60px; border-radius: 5px;"></a>
+                    <a href="inicio2.php" ><img src="img/mao.jpg" alt="icon" style="height: 60px; width: 60px; border-radius: 5px;"></a>
                 </div>
 
                 <div class="blocos_menus">
@@ -46,89 +46,57 @@ if (isset($_SESSION['dados_formulario'])) {
             </nav>
         </header>
         <!------------------------------------------------------------------------------------------------------------------------------------------------>
+
             <main class="corpos">
-                <h1 class="ficar_no_meio">CADASTRAR-SE</h1>
+                <div class="cadastro-card">
+                    <h1 class="ficar_no_meio">CADASTRAR-SE</h1>
 
-                <?php 
-                // Exibe mensagens de sucesso
-                if (isset($_SESSION['cadastro_sucesso'])) {
-                    echo "<p style='color: green; text-align: center;'>" . htmlspecialchars($_SESSION['cadastro_sucesso']) . "</p><br>";
-                    unset($_SESSION['cadastro_sucesso']);
-                }
-                // Exibe mensagens de erro gerais
-                if (isset($_SESSION['cadastro_erro'])) {
-                    echo "<p style='color: red; text-align: center;'>" . htmlspecialchars($_SESSION['cadastro_erro']) . "</p><br>";
-                    unset($_SESSION['cadastro_erro']);
-                }
-                // Exibe erros de validação
-                if (isset($_SESSION['cadastro_erro_validacao'])) {
-                    foreach ($_SESSION['cadastro_erro_validacao'] as $erro) {
-                        echo "<p style='color: red; text-align: center;'>$erro</p>";
+                    <?php 
+                    // Exibe mensagens de sucesso
+                    if (isset($_SESSION['cadastro_sucesso'])) {
+                        echo "<p style='color: green; text-align: center;'>" . htmlspecialchars($_SESSION['cadastro_sucesso']) . "</p><br>";
+                        unset($_SESSION['cadastro_sucesso']);
                     }
-                    unset($_SESSION['cadastro_erro_validacao']);
-                }
-                ?>
-                
+                    // Exibe mensagens de erro gerais
+                    if (isset($_SESSION['cadastro_erro'])) {
+                        echo "<p style='color: red; text-align: center;'>" . htmlspecialchars($_SESSION['cadastro_erro']) . "</p><br>";
+                        unset($_SESSION['cadastro_erro']);
+                    }
+                    // Exibe erros de validação
+                    if (isset($_SESSION['cadastro_erro_validacao'])) {
+                        foreach ($_SESSION['cadastro_erro_validacao'] as $erro) {
+                            echo "<p style='color: red; text-align: center;'>$erro</p>";
+                        }
+                        unset($_SESSION['cadastro_erro_validacao']);
+                    }
+                    ?>
 
-                <form name="cadastroUsuario" method="post" action="../controller/processa_cadastro.php">
-                    <LABEL>NOME: </LABEL>
-                    <input type="text" name="nome" id="nome" placeholder="Nome completo" value="<?php if(isset($dados['nome'])){echo $dados['nome'];} ?>">
-                    <br><br>
-                    <label>CPF: </label>
-                    <input type="text" name="cpf" id="cpf" placeholder="Informe seu cpf" maxlength="14" onkeyup="mascaraCPF()" value="<?php if(isset($dados['cpf'])){echo $dados['cpf'];} ?>">
-                    <br><br>
-                    <LABEL>EMAIL: </LABEL>
-                    <input type="text" name="email" id="email" placeholder="Digite seu email" value="<?php if(isset($dados['email'])){echo $dados['email'];} ?>">
-                    <br><br>
-                    <LABEL>SENHA: </LABEL>
-                    <input type="password" name="senha" id="senha" placeholder="Digite uma senha" value="<?php if(isset($dados['senha'])){echo $dados['senha'];} ?>">
-                    <br><br>
-                    <LABEL>NUMERO: </LABEL>
-                    <input type="text" name="telefone" id="telefone" placeholder="(00) 00000-0000" onkeyup="mascaraTelefone()"  value="<?php if(isset($dados['telefone'])){echo $dados['telefone'];} ?>">
-                    <br><br>
-                    <input type="submit" value="cadastroFeito" name="cadastroFeito">
+                    <form name="cadastroUsuario" method="post" action="../controller/processa_cadastro.php">
+                        <label for="nome">NOME:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome completo" value="<?php if(isset($dados['nome'])){echo $dados['nome'];} ?>">
 
+                        <label for="cpf">CPF:</label>
+                        <input type="text" name="cpf" id="cpf" placeholder="Informe seu CPF" maxlength="14" onkeyup="mascaraCPF()" value="<?php if(isset($dados['cpf'])){echo $dados['cpf'];} ?>">
 
-                </form>
+                        <label for="email">EMAIL:</label>
+                        <input type="text" name="email" id="email" placeholder="Digite seu email" value="<?php if(isset($dados['email'])){echo $dados['email'];} ?>">
 
+                        <label for="telefone">NÚMERO:</label>
+                        <input type="text" name="telefone" id="telefone" placeholder="(00) 00000-0000" onkeyup="mascaraTelefone()"  value="<?php if(isset($dados['telefone'])){echo $dados['telefone'];} ?>">
 
-                
+                        <label for="senha">SENHA:</label>
+                        <input type="password" name="senha" id="senha" placeholder="Digite uma senha" value="<?php if(isset($dados['senha'])){echo $dados['senha'];} ?>">
+
+                        <input type="submit" value="Cadastrar" name="cadastroFeito" class="botao-acao">
+                    </form>
+                </div>
             </main>
-        
 
          <!------------------------------------------------------------------------------------------------------------------------------------------------>
-         <p id="frase">
-            muito obrigado por visitar o site
-        </p>
         <footer id="rodape">
-            
-            
-            <div class="blocos_rodape">
-                <div class="bloquinhos">
-                    <p><strong>Atendimento:</strong> (11) 99999-9999 | contato@petshop.com</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Endereço:</strong> Rua dos Bichinhos, 123 - São Paulo, SP</p>
-                </div>
-                <div class="bloquinhos">
-                    <p><strong>Horário:</strong> Seg a Sáb - 9h às 18h</p>
-                </div>
-                
-                
-                
-            </div>
-
-            <div class="blocos_rodape">
-                <p>
-                    Visite nossos canal no instagram e no facebook
-                </p>
-                <a href="https://instagram.com/petshop" target="_blank">
-                    <img src="img/instagram.png" alt="logo instagram" style="height: 50px; width: 50px;">
-                </a>
-                <a href="https://facebook.com/petshop" target="_blank">
-                    <img src="img/facebook.png" alt="logo facebook" style="height: 50px; width: 50px;">
-                </a>
-            </div>
+            <p style="width: 100%; text-align: center; margin: 18px 0 12px 0; color: #2E2E2E; font-size: 1.1em;">
+                © 2025 Versos e Vozes – Todos os direitos reservados.
+            </p>
         </footer>
 
 

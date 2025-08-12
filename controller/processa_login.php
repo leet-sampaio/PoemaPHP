@@ -36,7 +36,7 @@
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['usuario_email'] = $usuario['email'];
 
-            header('Location: ../view/inicio2.php'); // Redirecione para o painel ou página principal
+            header('Location: ../view/poemas.php'); // Redirecione para a página de poemas
             exit;
 
         } else {
